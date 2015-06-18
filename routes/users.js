@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+var web = require('../webapi/server');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+var db = require('../storage/db');
+
+web.get("/users", (req, res) => {
+  db("user_info").select().then(res);
 });
 
-module.exports = router;
+
