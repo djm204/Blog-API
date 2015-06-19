@@ -1,4 +1,5 @@
 var path = require("path");
 var server = require('../server');
 
-var staticPath = server.static(path.join(__dirname, 'public'));
+var staticPath = path.join(__dirname, 'public');
+module.exports = staticPath;
