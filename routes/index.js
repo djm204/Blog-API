@@ -12,7 +12,10 @@ module.exports = router;
 /* GET hellow world */
 router.get('/helloworld', function (req, res) {
   res.render('helloworld', {title: 'Hello, World!'})
-})
+});
+
+
+/* GET user_info from user_info and display it*/
 
 
 
