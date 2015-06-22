@@ -5,4 +5,4 @@ console.log("Creating database");
 db();
 
 console.log("Starting web server");
-web();
+web.init();
