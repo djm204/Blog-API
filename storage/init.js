@@ -1,2 +1,5 @@
 var fs = require('fs');
-fs.readFile("mydb", function (error, data) { });
+
+exports.init = function () {
+    fs.readFile("mydb", function (error, data) { });
+}
