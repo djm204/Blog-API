@@ -1,5 +1,5 @@
-var db = require("./storage/init");
-var web = require("./webapi/init");
+var db = require("./storage/db");
+var web = require("./webapi/static");
 
 console.log("Creating database");
 db.init();
