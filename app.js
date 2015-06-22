@@ -1,4 +1,4 @@
-var db = require("./storage/db");
+var db = require("./storage/init");
 var web = require("./webapi/static");
 
 console.log("Creating database");
