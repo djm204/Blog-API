@@ -1,3 +1,6 @@
 var server = require('../server');
 var staticPath = require("./static");
-server.static(staticPath);
+
+exports.init = function() {
+    server.static(staticPath);
+}
