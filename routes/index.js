@@ -1,18 +1,16 @@
-var express = require('express');
-var router = express.Router();
+var server = require('../server');
+var router = server.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.send('Hello World');
 });
 
 module.exports = router;
 
 
 /* GET hellow world */
-router.get('/helloworld', function (req, res) {
-  res.render('helloworld', {title: 'Hello, World!'})
-});
+
 
 
 /* GET user_info from user_info and display it*/
