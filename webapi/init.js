@@ -5,22 +5,14 @@ var staticPath = require("./static");
 
 exports.init = function(){
 	
-	router.use(function(req, res, next){
-		
-		console.log(req.method, req.url);
-		
-		next();
+	router.get('/', function(req, res){
+		res.json({ 
+			message: "welcome to the api, stay a while"
+			});
 	});
 	
-	router.get('/', function (req, res){
-		res.send('homepage');
-	});
+	server.use('/api', router);
 	
-	router.get('/about', function(req, res){
-		res.send('about');
-	});
-	
-	server.use('/', router);
 	
 }
 

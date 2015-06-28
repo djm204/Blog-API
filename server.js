@@ -11,14 +11,22 @@ var path = require('path');
 
 var app = express();
 
-var server = app.listen(4500);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+var port = process.env.PORT || 4500;
+
+
+
+app.listen(port);
+
+console.log('Listening on port:' + port);
 
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+
 
 
 // Make our db accessible to our router
