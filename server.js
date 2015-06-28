@@ -8,10 +8,10 @@ var path = require('path');
 
 
 
+
 var app = express();
 
 var server = app.listen(4500);
-app.use(express.static('./public'));
 
 
 // uncomment after placing your favicon in /public
