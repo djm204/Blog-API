@@ -1,9 +1,15 @@
 var express = require("express");
 var server = require('../server');
+var db = require('../storage/db');
 var router = express.Router();
 var staticPath = require("./static");
 
 exports.init = function(){
+	
+	router.use(function(req, res, next){
+		console.log('Processing...'); 
+		next();
+	});
 	
 	router.get('/', function(req, res){
 		res.json({ 
@@ -11,8 +17,31 @@ exports.init = function(){
 			});
 	});
 	
-	server.use('/api', router);
 	
+	// More API routes here
+	
+	//call specific objects ie: bears----------------------------------
+	
+	router.route('/bears')
+	
+		.post(function (req, res){
+			var bear = new Bear();
+			bear.name = req.body.name;
+			
+			bear.save(function(err){
+				if (err)
+				res.send(err);
+				
+				res.json({message: 'Bear created!'});
+			});
+		})
+		
+		.get(function(req,res){
+			//GET Bears
+		});
+		
+	//Register ROUTES---------------------------------------------
+	server.use('/api', router);
 	
 }
 
