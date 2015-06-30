@@ -1,6 +1,5 @@
 var express = require("express");
 var server = require('../server');
-var db = require('../storage/db');
 var router = express.Router();
 var staticPath = require("./static");
 
@@ -21,6 +20,7 @@ exports.init = function(){
 	// More API routes here
 	
 	//call specific objects ie: bears----------------------------------
+	var Bear = require('../models/indexViewModel');
 	
 	router.route('/bears')
 	
@@ -30,7 +30,7 @@ exports.init = function(){
 			
 			bear.save(function(err){
 				if (err)
-				res.send(err);
+					res.send(err);
 				
 				res.json({message: 'Bear created!'});
 			});

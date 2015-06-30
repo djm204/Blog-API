@@ -1,8 +1,25 @@
-var fs = require('fs');
+var db = require('./db');
+var hasTable = db.schema.hasTable("bears");
 
-function init(){
-	fs.readFile("mydb", function (error, data) { });
-	
+var  create = db.schema.createTable('bears', function (table){
+	table.increments();
+	table.string('name');
+	table.string('type');
+	table.timestamps();
+});
+var init = {
+	hasTable: hasTable,
+	create: create
+};
+
+function initialise(){
+	init.hasTable.then(function(exists){
+		if (exists)
+			return;
+		init.create.then(function(){
+			console.log("Created 'bears' table");
+		})
+	})
 }
 
-module.exports = init;
+module.exports = initialise;
