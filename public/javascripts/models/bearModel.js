@@ -41,6 +41,13 @@ function BearViewModel() {
 	}
 
 	self.get = function () {
+		$.getJSON("/bears", function(allData){
+			var mappedBears = $.map(allData, 
+				function(bear){ 
+					return new Bear(bear)
+					});
+			self.bears(mappedBears);
+		});
 		setTimeout(function () {
 			var sampleBear = new Bear({ name: "henry", type: "fluffy" });
 			var otherSample = new Bear({ name: "henry", type: "cuddly" });

@@ -1,5 +1,6 @@
 var db = require('./db');
-var hasTable = db.schema.hasTable("bears");
+var tableName = "bears";
+var hasTable = db.schema.hasTable(tableName);
 
 var  create = db.schema.createTable('bears', function (table){
 	table.increments();
@@ -14,11 +15,12 @@ var init = {
 
 function initialise(){
 	init.hasTable.then(function(exists){
+		
 		if (exists)
-			console.log("table exists");
+			console.log("table " + tableName + " exists");
 			return;
 		init.create.then(function(){
-			console.log("Created 'bears' table");
+			console.log("Created " + tableName+ " table");
 		})
 	})
 }

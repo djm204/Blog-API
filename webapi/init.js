@@ -9,7 +9,13 @@ exports.init = function(){
 	server.use(express.static(staticPath));
 	
 	console.log("registering API routes");
-	server.use(routes);
+	server.get("/bears", function(req, res){
+		res.send(routes.read);
+	});
+	
+	server.post("/bears", function(req, res){
+		res.send(routes.update);
+	});
 
 	
 		
