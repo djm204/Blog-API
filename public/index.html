@@ -1,21 +1,27 @@
 <html>
-	<ko-head>
-		
-	</ko-head>
+	<head></head>
 	<body>
-		<nav>
-			<ko-menu>
-			</ko-menu>
-		</nav>
-		<script src="./javascripts/jquery.js"></script>
-		<script src="./javascripts/knockout-latest.js"></script>
-		<script src="../models/bearModel.js"></script>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+			</tr>
+			<tr data-bind="foreach: bears">
+				<td>
+					<span data-bind="text: name"></span>
+				</td>
+				<td>
+					<span data-bind="text: type"></span>
+				</td>
+			</tr>
+		</table>
+		<script src="/javascripts/jquery.js"></script>
+		<script src="/javascripts/knockout-latest.js"></script>
+		<script src="/javascripts/models/bearModel.js"></script>
 		<script>
-			$(function(){
-				var bearsVM = new bear
-				
-			});
+			var bearVM = new BearViewModel();
 			
+			ko.applyBindings(bearVM);
 		</script>
 	</body>
 </html>
