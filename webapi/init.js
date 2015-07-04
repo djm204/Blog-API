@@ -20,7 +20,7 @@ exports.init = function(){
 	// More API routes here
 	
 	//call specific objects ie: bears----------------------------------
-	var Bear = require('../models/indexViewModel');
+	var Bear = require('../models/bearModel');
 	
 	router.route('/bears')
 	
@@ -28,7 +28,7 @@ exports.init = function(){
 			var bear = new Bear();
 			bear.name = req.body.name;
 			
-			bear.save(function(err){
+			bear.addBear(function(err){
 				if (err)
 					res.send(err);
 				

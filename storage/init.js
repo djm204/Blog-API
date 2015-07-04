@@ -15,6 +15,7 @@ var init = {
 function initialise(){
 	init.hasTable.then(function(exists){
 		if (exists)
+			console.log("table exists");
 			return;
 		init.create.then(function(){
 			console.log("Created 'bears' table");
