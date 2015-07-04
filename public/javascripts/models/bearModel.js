@@ -1,7 +1,3 @@
-//var db = require('../storage/db');
-//var jquery = require('jquery');
-//var ko = require('knockout');
-
 function Bear(data) {
 	this.name = ko.observable(data.name);
 	this.type = ko.observable(data.type);
