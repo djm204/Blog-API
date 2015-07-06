@@ -1,14 +1,18 @@
 var db = require("../../storage/db");
-var route = 
-function (req, res) {
 
 
-  res.send(db.select()
-    .table('bears')
-    .then(function(bears){
-      console.log(bears);
-      console.log(typeof bears);
-    }));
-};
+function getBearHandler(req, response) {
+  // shift-alt-f to code format
+  console.log("calling GetBearHandler");
+  db("bears")
+    .select()
+    .then(bears => response.send(bears))
+    .catch(error => {
+      response.statusCode(500);
+      response.send("Failed to retrieve:" + error);
+    });
+}
 
-module.exports = route;
+
+
+module.exports = getBearHandler;

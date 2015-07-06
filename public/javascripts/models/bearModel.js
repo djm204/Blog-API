@@ -41,7 +41,9 @@ function BearViewModel() {
 	}
 
 	self.get = function () {
-		$.getJSON("/bears", function(allData){
+		$.get("/bears").done(bears => console.log(Array.isArray(bears)));
+		
+		/*$.getJSON("/bears", function(allData){
 			var mappedBears = $.map(allData, 
 				function(bear){ 
 					return new Bear(bear)
@@ -53,7 +55,9 @@ function BearViewModel() {
 			var otherSample = new Bear({ name: "henry", type: "cuddly" });
 			self.bears.push(sampleBear);
 			self.bears.push(otherSample);
-		}, 2000);
+		}, 2000);*/
+		
+		 // true
 	}
 	
 	// pseudo constructor

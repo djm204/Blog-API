@@ -2,6 +2,7 @@ var express = require("express");
 var server = require('../server');
 var staticPath = require("./static");
 var routes = require("./all");
+var getHandler = require("./bears/get");
 
 
 exports.init = function(){
@@ -9,9 +10,7 @@ exports.init = function(){
 	server.use(express.static(staticPath));
 	
 	console.log("registering API routes");
-	server.get("/bears", function(req, res){
-		res.send(routes.read);
-	});
+	server.get("/bears", getHandler);
 	
 	server.post("/bears", function(req, res){
 		res.send(routes.update);
@@ -22,5 +21,5 @@ exports.init = function(){
 	//Register ROUTES---------------------------------------------
 	//server.use('/api', router);
 	
-}
+};
 
