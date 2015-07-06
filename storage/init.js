@@ -2,7 +2,7 @@ var db = require('./db');
 var tableName = "bears";
 var hasTable = db.schema.hasTable(tableName);
 
-var  create = db.schema.createTable('bears', function (table){
+var  create = db.schema.createTable(tableName, function (table){
 	table.increments();
 	table.string('name');
 	table.string('type');
